@@ -1,0 +1,54 @@
+AmazonS3Access-MyFirstGlueISProject
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:putObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::rapid-ur-s3-redshift",
+                "arn:aws:s3:::rapid-ur-s3-redshift/*"
+            ]
+        }
+    ]
+}
+
+AWSGlueInteractiveSessionPassRolePolicy
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::739688330455:role/AWSGlueServiceRole-GlueIS"
+        }
+    ]
+}
+
+AWSGlueServiceRole-Glue-EZCRC-s3Policy
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::suryainputbucket*"
+            ]
+        }
+    ]
+}
+
+The below 2 roles are already present in S3:
+AWSGlueServiceRole
+AwsGlueSessionUserRestrictedNotebookPolicy
